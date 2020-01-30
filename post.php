@@ -1,11 +1,15 @@
 <?php
 
-include_once "utilitaire/requete.php";
-include_once "utilitaire/function.php.php";
+include_once "requete.php";
+include_once "function.php";
 
-if (isset($_POST["submitPost"])) {
-    $text = filter_input(INPUT_POST, 'Text', FILTER_SANITIZE_EMAIL);
+if (isset($_POST["submit"])) {
+
+    $text = filter_input(INPUT_POST, 'Text', FILTER_SANITIZE_STRING);
+    echo "toto";
     GestionUpload();
+
+
 }
 
 ?>
@@ -28,7 +32,7 @@ if (isset($_POST["submitPost"])) {
 </head>
 
 <body>
-
+<h1>earwerzweur</h1>
 	<div class="wrapper">
 		<div class="box">
 			<div class="row row-offcanvas row-offcanvas-left">
@@ -256,7 +260,7 @@ if (isset($_POST["submitPost"])) {
 									</div>
 									-->
 <!--
-	
+
 									<div class="panel panel-default">
 										<div class="panel-heading"><a href="#" class="pull-right">View all</a>
 											<h4>Portlet Heading</h4>
@@ -273,7 +277,7 @@ if (isset($_POST["submitPost"])) {
 
 									<div class="panel panel-default">
 										<div class="panel-default"><img src="assets/img/bg_4.jpg" class="img-responsive"></div>
-										
+
 										<div class="panel-body">
 											<p class="lead">Social Good</p>
 											<p>1,200 Followers, 83 Posts</p>
@@ -287,7 +291,7 @@ if (isset($_POST["submitPost"])) {
 									</div>
 
 								</div>
-												
+
 							</div>
 							<!--/row-->
 
@@ -340,9 +344,9 @@ if (isset($_POST["submitPost"])) {
 Zone pour upload form#################################################################
 -->
 				<div class="modal-body">
-					<form class="form center-block">
+					<form enctype="multipart/form-data"  class="form center-block" action="post.php" method="POST">
 						<div class="form-group">
-							<textarea class="form-control input-lg"  name="Text" autofocus="" placeholder="Que voulez vous partager"></textarea>
+							<textarea class="form-control input-lg"  name="Text"  placeholder="Que voulez vous partager"></textarea>
 
 						</div>
 
@@ -353,10 +357,10 @@ Zone pour upload form###########################################################
                     <!--
 						<button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true"></button>
 						--->
-                            <input  class="btn btn-primary btn-sm"  name="submitPost" value="Post" type="submit">
+                            <input  class="btn btn-primary btn-sm"  name="submit" value="submit" type="submit">
 						<ul class="pull-left list-inline">
 							<!---<li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>-->
-                            <input     accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="img" >
+                            <input     accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="image" >
                             <input type="hidden" name="MAX_FILE_SIZE" value="3145728" />
 
                         </ul>

@@ -1,6 +1,6 @@
 <?php
-include_once "utilitaire/requete.php";
-include_once "utilitaire/function.php.php";
+include_once "requete.php";
+include_once "function.php";
 
 
 ?>
