@@ -1,3 +1,10 @@
+<?php
+include_once "utilitaire/requete.php";
+include_once "utilitaire/function.php.php";
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,9 +83,11 @@
                                 <li>
                                     <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a>
                                 </li>
+                                <!--
                                 <li>
                                     <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
                                 </li>
+                                -->
                                 <li>
                                     <a href="#"><span class="badge">badge</span></a>
                                 </li>

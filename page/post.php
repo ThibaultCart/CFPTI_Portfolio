@@ -1,3 +1,17 @@
+<?php
+
+include_once "utilitaire/requete.php";
+include_once "utilitaire/function.php.php";
+
+if (isset($_POST["submitPost"])) {
+    $text = filter_input(INPUT_POST, 'Text', FILTER_SANITIZE_EMAIL);
+    GestionUpload();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -321,27 +335,40 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
 					Update Status
 				</div>
+
+<!---
+Zone pour upload form#################################################################
+-->
 				<div class="modal-body">
 					<form class="form center-block">
 						<div class="form-group">
-							<textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+							<textarea class="form-control input-lg"  name="Text" autofocus="" placeholder="Que voulez vous partager"></textarea>
+
 						</div>
-					</form>
+
 				</div>
 				<div class="modal-footer">
 					<div>
-						<button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+
+                    <!--
+						<button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true"></button>
+						--->
+                            <input  class="btn btn-primary btn-sm"  name="submitPost" value="Post" type="submit">
 						<ul class="pull-left list-inline">
-							<li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
-							<li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li>
-							<li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
-						</ul>
+							<!---<li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>-->
+                            <input     accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="img" >
+                            <input type="hidden" name="MAX_FILE_SIZE" value="3145728" />
+
+                        </ul>
+
 					</div>
 				</div>
+
+                </form>
 			</div>
 		</div>
 	</div>
-
+<ü
 	<script type="text/javascript" src="assets/js/jquery.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap.js"></script>
 	<script type="text/javascript">
