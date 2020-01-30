@@ -360,7 +360,7 @@ Zone pour upload form###########################################################
                             <input  class="btn btn-primary btn-sm"  name="submit" value="submit" type="submit">
 						<ul class="pull-left list-inline">
 							<!---<li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>-->
-                            <input     accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="image" >
+                            <input      multiple="true"accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="image" >
                             <input type="hidden" name="MAX_FILE_SIZE" value="3145728" />
 
                         </ul>
