@@ -3,14 +3,6 @@
 include_once "requete.php";
 include_once "function.php";
 
-if (isset($_POST["submit"])) {
-
-    $text = filter_input(INPUT_POST, 'Text', FILTER_SANITIZE_STRING);
-    echo "toto";
-    GestionUpload();
-
-
-}
 
 ?>
 
@@ -344,7 +336,7 @@ if (isset($_POST["submit"])) {
 Zone pour upload form#################################################################
 -->
 				<div class="modal-body">
-					<form enctype="multipart/form-data"  class="form center-block" action="post.php" method="POST">
+					<form enctype="multipart/form-data"  class="form center-block" action="uploadimage.php" method="POST">
 						<div class="form-group">
 							<textarea class="form-control input-lg"  name="Text"  placeholder="Que voulez vous partager"></textarea>
 
@@ -360,7 +352,7 @@ Zone pour upload form###########################################################
                             <input  class="btn btn-primary btn-sm"  name="submit" value="submit" type="submit">
 						<ul class="pull-left list-inline">
 							<!---<li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>-->
-                            <input      multiple="true"accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="image" >
+                            <input  multiple="multiple" accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="image" >
                             <input type="hidden" name="MAX_FILE_SIZE" value="3145728" />
 
                         </ul>
