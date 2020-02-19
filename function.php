@@ -1,9 +1,11 @@
+<pre
 <?php
 include_once "requete.php";
 
 
 function GestionUpload($text)
 {
+    print_r($_FILES);
     //compte le nom de fichier envoyer
 $nbimage=count($_FILES['file']['name']);
 
