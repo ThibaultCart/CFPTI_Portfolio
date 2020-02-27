@@ -6,6 +6,9 @@
         {
             var_dump($_FILES);
             $uniquename = "";
+
+            $idpost = InsertPost($text);
+            echo "L'id du dernier".$idpost;
             //compte le nom de fichier envoyer
             $nbimage = count($_FILES['image']['name']);
 
@@ -22,6 +25,7 @@
 
 
                 $fichier = $temp;
+                echo "Le nom du fichier".$fichier;
                 $taille = filesize($_FILES['image']['tmp_name'][$i]);
 
                 $extensions = array('.png', '.gif', '.jpg', '.jpeg');
@@ -48,7 +52,8 @@
                     {
                         echo '   Upload effectué avec succès !';
                         // si l'upload a marcher on ajoute l'les données de l'image a la base de données
-                        InsertImage($fichier, $extension, $text);
+                        InsertImage($idpost,$fichier,$extension);
+                        
                     } else //Sinon (la fonction renvoie FALSE).
                     {
                         echo 'Echec de l\'upload !';

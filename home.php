@@ -117,9 +117,9 @@ include_once "function.php";
                             <!-- content -->
 
                             <div class="panel panel-default">
-										<div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive"></div>
-										<p  class="font-weight-bolder" >Bienvenu</p>
-									</div>
+                                <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive"></div>
+                                <p class="font-weight-bolder">Bienvenu</p>
+                            </div>
 
                             <div class="row">
                                 <div class="col-sm-6">
