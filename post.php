@@ -1,4 +1,3 @@
-
 <?php
 
 include_once "requete.php";
@@ -18,14 +17,15 @@ include_once "function.php";
 	<title>Facebook Theme Demo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="assets/css/bootstrap.css" rel="stylesheet">
-	<!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+	[if lt IE 9]
+	<script src="html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	[endif]
+
 	<link href="assets/css/facebook.css" rel="stylesheet">
 </head>
 
 <body>
-<h1>earwerzweur</h1>
+	<h1>earwerzweur</h1>
 	<div class="wrapper">
 		<div class="box">
 			<div class="row row-offcanvas row-offcanvas-left">
@@ -38,11 +38,11 @@ include_once "function.php";
 					</ul>
 
 					<!--MEnu personaliser avec home et post  -->
-                    <ul class="nav hidden-xs" id="lg-menu">
-                        <li class="active"><a href="home.php"><i class="glyphicon glyphicon-list-alt"></i> Home</a></li>
-                        <li><a href="post.php"><i class="glyphicon glyphicon-list"></i> Post</a></li>
+					<ul class="nav hidden-xs" id="lg-menu">
+						<li class="active"><a href="home.php"><i class="glyphicon glyphicon-list-alt"></i> Home</a></li>
+						<li><a href="post.php"><i class="glyphicon glyphicon-list"></i> Post</a></li>
 
-                    </ul>
+					</ul>
 					<ul class="list-unstyled hidden-xs" id="sidebar-footer">
 						<li>
 							<a href="http://usebootstrap.com/theme/facebook">
@@ -210,7 +210,7 @@ include_once "function.php";
 											</div>
 										</form>
 									</div>
-<!--
+									<!--
 									<div class="panel panel-default">
 										<div class="panel-heading"><a href="#" class="pull-right">View all</a>
 											<h4>Bootply Editor &amp; Code Library</h4>
@@ -227,7 +227,7 @@ include_once "function.php";
 										</div>
 									</div>
 									-->
-<!--
+									<!--
 									<div class="panel panel-default">
 										<div class="panel-heading"><a href="#" class="pull-right">View all</a>
 											<h4>Stackoverflow</h4>
@@ -252,7 +252,7 @@ include_once "function.php";
 										</div>
 									</div>
 									-->
-<!--
+									<!--
 
 									<div class="panel panel-default">
 										<div class="panel-heading"><a href="#" class="pull-right">View all</a>
@@ -333,13 +333,13 @@ include_once "function.php";
 					Update Status
 				</div>
 
-<!---
+				<!---
 Zone pour upload form#################################################################
 -->
 				<div class="modal-body">
-					<form enctype="multipart/form-data"  class="form center-block" action="uploadimage.php" method="POST">
+					<form enctype="multipart/form-data" class="form center-block" action="uploadimage.php" method="POST">
 						<div class="form-group">
-							<textarea class="form-control input-lg"  name="Text"  placeholder="Que voulez vous partager"></textarea>
+							<textarea class="form-control input-lg" name="Text" placeholder="Que voulez vous partager"></textarea>
 
 						</div>
 
@@ -347,39 +347,39 @@ Zone pour upload form###########################################################
 				<div class="modal-footer">
 					<div>
 
-                    <!--
+						<!--
 						<button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true"></button>
 						--->
-                            <input  class="btn btn-primary btn-sm"  name="submit" value="submit" type="submit">
+						<input class="btn btn-primary btn-sm" name="submit" value="submit" type="submit">
 						<ul class="pull-left list-inline">
 							<!---<li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>-->
-                            <input  multiple accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="image" >
-                            <input type="hidden" name="MAX_FILE_SIZE" value="3145728" />
+							<input multiple=true accept=".jpg, .jpeg, .png" class="glyphicon glyphicon-upload" type="file" name="image[]">
+							<input type="hidden" name="MAX_FILE_SIZE" value="3145728" />
 
-                        </ul>
+						</ul>
 
 					</div>
 				</div>
 
-                </form>
+				</form>
 			</div>
 		</div>
 	</div>
-<ü
-	<script type="text/javascript" src="assets/js/jquery.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('[data-toggle=offcanvas]').click(function() {
-				$(this).toggleClass('visible-xs text-center');
-				$(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-				$('.row-offcanvas').toggleClass('active');
-				$('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-				$('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-				$('#btnShow').toggle();
+	<ü <script type="text/javascript" src="assets/js/jquery.js">
+		</script>
+		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('[data-toggle=offcanvas]').click(function() {
+					$(this).toggleClass('visible-xs text-center');
+					$(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+					$('.row-offcanvas').toggleClass('active');
+					$('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
+					$('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
+					$('#btnShow').toggle();
+				});
 			});
-		});
-	</script>
+		</script>
 </body>
 
 </html>

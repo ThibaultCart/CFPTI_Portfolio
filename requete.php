@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "connexion.php";
+include_once "PDO.php";
 
 
 function InsertImage($nommedia, $typemedia, $commentaire)
@@ -40,6 +40,3 @@ function InsertImage($nommedia, $typemedia, $commentaire)
 
 
 }
-
-
-?>
