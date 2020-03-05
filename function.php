@@ -9,6 +9,7 @@
 
             $idpost = InsertPost($text);
             echo "L'id du dernier".$idpost;
+
             //compte le nom de fichier envoyer
             $nbimage = count($_FILES['image']['name']);
 
@@ -17,24 +18,30 @@
 
                 $fichier = basename($_FILES['image']['name'][$i]);
 
-                $sel = GenerateRandomString();
-                $temp = $sel . $fichier;
+                    $idunique=uniqid();
+                $temp = $idunique . $fichier;
 
                 $taille_maxi = 3000000;
-
-
+$checkcontent=mime_content_type($_FILES['image']['tmp_name'][$i]);
+            
+echo $checkcontent;
 
                 $fichier = $temp;
                 echo "Le nom du fichier".$fichier;
-                $taille = filesize($_FILES['image']['tmp_name'][$i]);
+                $taille = $_FILES['image']['size'][$i];
 
                 $extensions = array('.png', '.gif', '.jpg', '.jpeg');
                 $extension = strrchr($_FILES['image']['name'][$i], '.');
+                $ContentCheck = array('image/png', 'image/gif', 'image/jpg', 'image/jpeg');
+
 
                 //Début des vérifications de sécurité...
                 if (!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
                 {
                     $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
+                }
+                if (!in_array($checkcontent,$ContentCheck)){
+                    $erreur = 'Le contenue de votre image est suspect';
                 }
                 if ($taille > $taille_maxi) {
                     $erreur = 'Le fichier est trop gros...';
@@ -93,16 +100,6 @@
             session_start();
         }
 
-        function GenerateRandomString()
-        {
-            $length = 10;
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $charactersLength = strlen($characters);
-            $randomString = '';
-            for ($i = 0; $i < $length; $i++) {
-                $randomString .= $characters[rand(0, $charactersLength - 1)];
-            }
-            return $randomString;
-        }
+       
 
         ?>
