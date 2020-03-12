@@ -113,84 +113,116 @@ include_once "function.php";
 					<!-- /top nav -->
 
 					<div class="padding">
-						<div class="full col-sm-9">
-
-							<!-- content -->
-							<div class="row">
-								<table>
-
-
-									<?php
-
-									$allpostcontent = getAllPost();
-									$nbpost = count($allpostcontent);
-									var_dump($allpostcontent);
-									var_dump($nbpost);
-
-									for ($i = 0; $i < $nbpost; $i++) {
-										$idPost = $allpostcontent[$i]["idPost"];
-										$allImageForThePost = GetallImage($idPost);
-
-										//var_dump($allImageForThePost);
-										$nbimage = count($allImageForThePost);
-										for ($i = 0; $i < $nbimage; $i++) {
-										}
-									}
-									?>
-								</table>
-								<!-- main col left -->
-								<div class="col-sm-5">
-
-									<div class="panel panel-default">
-										<div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive"></div>
-										<div class="panel-body">
-											<p class="lead">Nom de votre blog</p>
-											<p>45 Followers, 13 Posts</p>
-
-											<p>
-												<img src="assets/img/uFp_tsTJboUY7kue5XAsGAs28.png" height="28px" width="28px">
-											</p>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-						<!--/row-->
-
 						<div class="row">
-							<div class="col-sm-6">
-								<a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
-							</div>
-						</div>
-
-						<div class="row" id="footer">
-							<div class="col-sm-6">
-
-							</div>
-							<div class="col-sm-6">
-								<p>
-									<a href="#" class="pull-right">�Copyright 2013</a>
-								</p>
-							</div>
-						</div>
-
-						<hr>
-
-						<h4 class="text-center">
-							<a href="http://usebootstrap.com/theme/facebook" target="ext">Download this Template @Bootply</a>
-						</h4>
-
-						<hr>
 
 
-					</div><!-- /col-9 -->
-				</div><!-- /padding -->
+
+							<?php
+
+							$allpostcontent = getAllPost();
+							$nbpost = count($allpostcontent);
+							//var_dump($allpostcontent);
+							//var_dump($nbpost);
+
+							for ($i = 0; $i < $nbpost; $i++) {
+
+								$idPost = $allpostcontent[$i]["idPost"];
+								$allImageForThePost = GetallImage($idPost);
+
+								//	var_dump($allImageForThePost);
+								$nbimage = count($allImageForThePost);
+								echo '<div class="row">';
+								echo '<div class="card" ></div>
+<div class="card">
+	<div class="card-body " style="width: 800 px ;height: 600;">
+		<div class="carousel slide" data-ride="carousel" id="carousel-' . $i . '">
+			<div class="carousel-inner" role="listbox">';
+								for ($j = 0; $j < $nbimage; $j++) {
+									if ($j == 0) {
+										echo ' <div class="carousel-item active" style="height: 510px;width: 800px;"><img class="w-100 d-block" src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image" style="height: 276;width: 800px;"></div>';
+									} else {
+										echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><img class="w-100 d-block"
+src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image"
+style="height: 500;width: 100%;"></div>';
+									}
+								}
+								echo '</div>
+			<div><a class="carousel-control-prev" href="#carousel-' . $i . '" role="button" data-slide="prev"><span
+						class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a
+					class="carousel-control-next" href="#carousel-' . $i . '" role="button" data-slide="next"><span
+						class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
+			<ol class="carousel-indicators">';
+								for ($h = 0; $h < $nbimage; $h++) {
+									if ($h == 0) {
+										echo '<li data-target="#carousel-' . $i . '" data-slide-to="' . $h . '" class="active"></li>';
+									} else {
+										echo '<li data-target="#carousel-' . $i . '" data-slide-to="' . $h . '"></li>';
+									}
+								}
+								echo '</ol>
 			</div>
-			<!-- /main -->
-
+			<p class="card-text">' . $allpostcontent[$i]["commentaire"] . '</p>
 		</div>
+	</div>';
+								echo '</div>';
+							}
+
+
+							?>
+							</table>
+							<!-- main col left -->
+							<style>
+								#toto {
+									width: 900px;
+									height: auto;
+									border: solid black;
+									background-color: red;
+
+								}
+							</style>
+
+
+							<p>45 Followers, 13 Posts</p>
+
+						</div>
+
+					</div>
+
+				</div>
+				<!--/row-->
+
+				<div class="row">
+					<div class="col-sm-6">
+						<a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
+					</div>
+				</div>
+
+				<div class="row" id="footer">
+					<div class="col-sm-6">
+
+					</div>
+					<div class="col-sm-6">
+						<p>
+							<a href="#" class="pull-right">�Copyright 2013</a>
+						</p>
+					</div>
+				</div>
+
+				<hr>
+
+				<h4 class="text-center">
+					<a href="http://usebootstrap.com/theme/facebook" target="ext">Download this Template @Bootply</a>
+				</h4>
+
+				<hr>
+
+
+			</div><!-- /col-9 -->
+		</div><!-- /padding -->
+	</div>
+	<!-- /main -->
+
+	</div>
 	</div>
 	</div>
 
@@ -236,21 +268,21 @@ Zone pour upload form###########################################################
 			</div>
 		</div>
 	</div>
-	<ü <script type="text/javascript" src="assets/js/jquery.js">
-		</script>
-		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('[data-toggle=offcanvas]').click(function() {
-					$(this).toggleClass('visible-xs text-center');
-					$(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-					$('.row-offcanvas').toggleClass('active');
-					$('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-					$('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-					$('#btnShow').toggle();
-				});
+	<script type="text/javascript" src="assets/js/jquery.js">
+	</script>
+	<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('[data-toggle=offcanvas]').click(function() {
+				$(this).toggleClass('visible-xs text-center');
+				$(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+				$('.row-offcanvas').toggleClass('active');
+				$('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
+				$('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
+				$('#btnShow').toggle();
 			});
-		</script>
+		});
+	</script>
 </body>
 
 </html>

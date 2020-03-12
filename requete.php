@@ -81,3 +81,32 @@ function GetallImage($idpost)
     $result = $request->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+
+function DeleteMedia($id)
+{
+    $sql = " DELETE 
+    FROM `media`
+    WHERE `idPost`=:idpost;";
+
+    $db = connect();
+    $request = $db->prepare($sql);
+    $request->bindParam(":idpost", $id, PDO::PARAM_STR);
+    $request->execute();
+
+    $result = $request->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+function DeletePost($id)
+{
+    $sql = " DELETE 
+    FROM `post`     
+    WHERE `idPost`=:idpost;";
+
+    $db = connect();
+    $request = $db->prepare($sql);
+    $request->bindParam(":idpost", $id, PDO::PARAM_STR);
+    $request->execute();
+
+    $result = $request->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
