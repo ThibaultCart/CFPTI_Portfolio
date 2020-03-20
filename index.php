@@ -71,12 +71,14 @@ Zone pour upload form###########################################################
                     <li class="nav-item" role="presentation"></li>
                 </ul> <a href="#postModal" style=" color: black; font: bold;" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Mettre en ligne un POST</a>
 
+
             </div>
         </div>
     </nav>
     <?php
 
     $allpostcontent = getAllPost();
+
     $nbpost = count($allpostcontent);
     //var_dump($allpostcontent);
     //var_dump($nbpost);
@@ -84,21 +86,36 @@ Zone pour upload form###########################################################
     for ($i = 0; $i < $nbpost; $i++) {
 
         $idPost = $allpostcontent[$i]["idPost"];
+        var_dump($allpostcontent[$i]);
         $allImageForThePost = GetallImage($idPost);
+
 
         //	var_dump($allImageForThePost);
         $nbimage = count($allImageForThePost);
         echo '<div class="row">';
         echo '<div class="card" ></div>
     <div class="card">
-        <div class="card-body " style="width: 800 px ;height: 600;">
+        <div class="card-body " style="width: 800px ;height: 600px;">
             <div class="carousel slide" data-ride="carousel" id="carousel-' . $i . '">
                 <div class="carousel-inner" role="listbox">';
         for ($j = 0; $j < $nbimage; $j++) {
-            if ($j == 0) {
-                echo ' <div class="carousel-item active" style="height: 510px;width: 800px;"><img class="w-100 d-block" src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image" style="height: 276;width: 800px;"></div>';
+            if ($allImageForThePost[$j]["typemedia"] == ".mp4") {
+                if ($j == 0) {
+
+                    echo ' <div class="carousel-item active" style="height: 510px;width: 800px;">  <video  class="w-100 d-block" controls height="500" width="100%">
+                    <source src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '"  type="video/mp4" >
+
+                </video></div>';
+                } else
+                    echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><video  class="w-100 d-block" controls height="500" width="100%">
+                    <source src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '"  type="video/mp4" >
+
+                </video></div>';
             } else {
-                echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><img class="w-100 d-block"
+                if ($j == 0) {
+                    echo ' <div class="carousel-item active" style="height: 510px;width: 800px;"><img class="w-100 d-block" src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image" style="height: 276;width: 800px;"></div>';
+                } else
+                    echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><img class="w-100 d-block"
 src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image"
 style="height: 500;width: 100%;"></div>';
             }
@@ -120,7 +137,7 @@ style="height: 500;width: 100%;"></div>';
                 </div>
                 <p class="card-text">' . $allpostcontent[$i]["commentaire"] . '</p>
                 
-                <a  href="SupressionPost.php?idPost='.$idPost.'"type="button" class="btn btn-danger">Suprimmer</a>
+                <a  href="SupressionPost.php?idPost=' . $idPost . '"type="button" class="btn btn-danger">Suprimmer</a>
             </div>
         </div>';
         echo '</div>';

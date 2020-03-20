@@ -22,15 +22,17 @@ function GestionUpload($text)
         $temp = $idunique . $fichier;
 
         $taille_maxi = 3000000;
-        $checkcontent = mime_content_type($_FILES['image']['tmp_name'][$i]);
 
-        echo $checkcontent;
+            // marche pas car imposibilité d avoir php 7 sur easy php et laragon
+     //   $checkcontent = mime_content_type($_FILES['image']['tmp_name'][$i]);
+
+//        echo $checkcontent;
 
         $fichier = $temp;
         echo "Le nom du fichier" . $fichier;
         $taille = $_FILES['image']['size'][$i];
 
-        $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+        $extensions = array('.png', '.gif', '.jpg', '.jpeg','.mp3','.mp4');
         $extension = strrchr($_FILES['image']['name'][$i], '.');
         $ContentCheck = array('image/png', 'image/gif', 'image/jpg', 'image/jpeg');
 
@@ -40,9 +42,11 @@ function GestionUpload($text)
         {
             $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
         }
+        /*
         if (!in_array($checkcontent, $ContentCheck)) {
             $erreur = 'Le contenue de votre image est suspect';
         }
+        */
         if ($taille > $taille_maxi) {
             $erreur = 'Le fichier est trop gros...';
         }

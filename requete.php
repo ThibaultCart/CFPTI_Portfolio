@@ -69,7 +69,7 @@ function getAllPost()
 
 function GetallImage($idpost)
 {
-    $sql = " SELECT `nomMedia`
+    $sql = " SELECT `nomMedia`,`typemedia`
     FROM `media`
     WHERE `idPost`=:idpost;";
 
