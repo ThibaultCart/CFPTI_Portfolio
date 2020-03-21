@@ -102,22 +102,36 @@ Zone pour upload form###########################################################
             if ($allImageForThePost[$j]["typemedia"] == ".mp4") {
                 if ($j == 0) {
 
-                    echo ' <div class="carousel-item active" style="height: 510px;width: 800px;">  <video  class="w-100 d-block" controls height="500" width="100%">
+                    echo ' <div class="carousel-item active" style="height: 510px;width: 800px;">  <video autoplay loop  class="w-100 d-block" controls height="500" width="100%">
                     <source src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '"  type="video/mp4" >
 
                 </video></div>';
                 } else
-                    echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><video  class="w-100 d-block" controls height="500" width="100%">
+                    echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><video  autoplay loop class="w-100 d-block" controls height="500" width="100%">
                     <source src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '"  type="video/mp4" >
 
                 </video></div>';
             } else {
-                if ($j == 0) {
-                    echo ' <div class="carousel-item active" style="height: 510px;width: 800px;"><img class="w-100 d-block" src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image" style="height: 276;width: 800px;"></div>';
-                } else
-                    echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><img class="w-100 d-block"
+                if ($allImageForThePost[$j]["typemedia"] == ".mp3") {
+                    if ($j == 0) {
+
+                        echo ' <div class="carousel-item active" style="height: 510px;width: 800px;">  <audio autoplay loop   class="w-100 d-block" controls height="500" width="100%">
+                        <source src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '"  type="audio/mpeg" >
+    
+                    </video></div>';
+                    } else
+                        echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><audio  autoplay  loop class="w-100 d-block" controls height="500" width="100%">
+                        <source src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '"  type="audio/mpeg" >
+    
+                    </video></div>';
+                } else {
+                    if ($j == 0) {
+                        echo ' <div class="carousel-item active" style="height: 510px;width: 800px;"><img class="w-100 d-block" src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image" style="height: 276;width: 800px;"></div>';
+                    } else
+                        echo ' <div class="carousel-item " style="height: 510px;width: 800px;"><img class="w-100 d-block"
 src="media/img/' . $allImageForThePost[$j]["nomMedia"] . '" alt="Slide Image"
 style="height: 500;width: 100%;"></div>';
+                }
             }
         }
         echo '</div>
